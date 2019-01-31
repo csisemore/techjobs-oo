@@ -16,6 +16,7 @@
             <div th:errors="*{name}"></div>
         </div>
 
+        <!-- Employer -->
         <div class="form-group">
             <label th:for="employerId">Employer</label>
             <select th:field="*{employerId}">
@@ -26,6 +27,46 @@
         </div>
 
         <!-- TODO #5 - Create <select> dropdowns for other job fields -->
+        <!-- Location -->
+        <div class="form-group">
+            <!--<label th:for="location">Location</label>-->
+            <label th:for="locationId">Location</label>
+            <!--<select th:field="*{locations}"> -->
+            <select th:field="*{locationId}">
+                <option th:each="location : *{locations}"
+                        th:value="${location.id}"
+                        th:text="${location.value}"></option>
+            </select>
+        </div>
+        <!-- Skill -->
+        <div class="form-group">
+            <label th:for="coreCompetencyId">Skill</label>
+            <select th:field="*{coreCompetencyId}">
+                <option th:each="CoreCompetency : *{coreCompetencies}"
+                        th:value="${CoreCompetency.id}"
+                        th:text="${CoreCompetency.value}"></option>
+            </select>
+        </div>
+
+        <!-- postion type -->
+        <!-- <div class="form-group">
+            <label th:for="positionTypes">Position Type</label>
+            <select th:field="*{positionTypes}">
+                <option th:each="positionTypes : *{positionTypes}"
+                        th:value="${positionTypes.id}"
+                        th:text="${positionType.value}"></option>
+
+            </select>
+        </div> -->
+        <div class="form-group">
+            <label th:for="positionTypeId">Position Type</label>
+            <select th:field="*{positionTypeId}">
+                <option th:each="position : *{positionTypes}"
+                        th:value="${position.id}"
+                        th:text="${position.value}"></option>
+            </select>
+        </div>
+
 
         <input type="submit" value="Add Job" />
     </form>
